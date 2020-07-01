@@ -1,9 +1,42 @@
 {
   "computation": { "type": "error", "status": "OK" },
   "undefined_functions": { "type": "error", "status": "OK" },
-  "degeneration": { "type": "error", "status": "OK" },
+  "degeneration": {
+    "type": "error",
+    "status": "NOT OK",
+    "reason": "interpreter not a singleton",
+    "expression": "unresolvable_variable",
+    "imprecision": [
+      {
+        "variable": {
+          "name": "unresolvable_variable",
+          "type": "int",
+          "volatile": false,
+          "undefined": true
+        }
+      }
+    ],
+    "program_point": {
+      "file": "test.c",
+      "line": 12,
+      "function": "main_if",
+      "statement_kind": "instruction"
+    }
+  },
   "non_terminating": { "type": "to verify", "status": "OK" },
-  "messages": { "type": "to verify", "status": "OK" },
+  "messages": {
+    "type": "to verify",
+    "status": "NOT OK",
+    "list": [
+      {
+        "location": { "file": "test.c", "line": 12 },
+        "plugin": "value",
+        "kind": "warning",
+        "message":
+          "The following sub-expression cannot be evaluated:\\nunresolvable_variable\\n\\nAll sub-expressions with their values:\\nint  unresolvable_variable \\342\\210\\210 [-2147483648..2147483647]\\n\\nStopping\\nstack: main_if"
+      }
+    ]
+  },
   "alarms": { "type": "error", "status": "OK" },
   "hypotheses": { "type": "to verify", "status": "OK" },
   "no_body_but_spec": { "type": "to verify", "status": "OK" },
@@ -26,20 +59,16 @@
   "coverage": {
     "type": "informative",
     "function_coverage": "50%",
-    "total_statements_coverage": "22%",
-    "semantic_statements_coverage": "100%"
+    "total_statements_coverage": "11%",
+    "semantic_statements_coverage": "14%"
   },
   "precision": { "type": "informative", "status": "OK", "max_slevel": 1 },
   "target": {
     "type": "informative",
-    "entry_point": "main",
+    "entry_point": "main_if",
     "architecture": "gcc 4.0.3 - X86-32bits mode",
     "endianness": "little endian"
   },
-  "entry_point_return": {
-    "type": "informative",
-    "reachable": true,
-    "value": "{{  }}"
-  },
+  "entry_point_return": { "type": "informative", "reachable": false },
   "exit_function": { "type": "informative", "reachable_calls": 0 }
 }

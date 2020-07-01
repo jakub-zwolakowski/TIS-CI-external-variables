@@ -4,6 +4,12 @@ extern int unresolvable_variable;
 int main(void) {
   int x;
   x = unresolvable_variable;
+  return x;
+}
+
+int main_if(void) {
+  int x;
+  x = unresolvable_variable;
   if(x > 42)
     return x;
   else
