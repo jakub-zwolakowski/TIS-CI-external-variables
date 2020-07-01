@@ -2,5 +2,7 @@
 extern int unresolvable_variable;
 
 int main(void) {
-  return unresolvable_variable;
+  int x;
+  x = unresolvable_variable;
+  return x;
 }
