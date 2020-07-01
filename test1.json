@@ -18,7 +18,7 @@
     ],
     "program_point": {
       "file": "test.c",
-      "line": 6,
+      "line": 12,
       "function": "main",
       "statement_kind": "instruction"
     }
@@ -29,7 +29,7 @@
     "status": "NOT OK",
     "list": [
       {
-        "location": { "file": "test.c", "line": 6 },
+        "location": { "file": "test.c", "line": 12 },
         "plugin": "value",
         "kind": "warning",
         "message":
@@ -58,8 +58,8 @@
   "useless_files": { "type": "to verify", "status": "OK" },
   "coverage": {
     "type": "informative",
-    "function_coverage": "50%",
-    "total_statements_coverage": "11%",
+    "function_coverage": "33%",
+    "total_statements_coverage": "8%",
     "semantic_statements_coverage": "50%"
   },
   "precision": { "type": "informative", "status": "OK", "max_slevel": 1 },

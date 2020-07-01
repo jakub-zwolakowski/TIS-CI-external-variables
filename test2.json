@@ -25,8 +25,8 @@
   "useless_files": { "type": "to verify", "status": "OK" },
   "coverage": {
     "type": "informative",
-    "function_coverage": "50%",
-    "total_statements_coverage": "22%",
+    "function_coverage": "33%",
+    "total_statements_coverage": "17%",
     "semantic_statements_coverage": "100%"
   },
   "precision": { "type": "informative", "status": "OK", "max_slevel": 1 },

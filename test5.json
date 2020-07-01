@@ -5,21 +5,20 @@
     "type": "error",
     "status": "NOT OK",
     "reason": "interpreter not a singleton",
-    "expression": "unresolvable_variable",
+    "expression": "s_ptr->x",
     "imprecision": [
       {
-        "variable": {
-          "name": "unresolvable_variable",
-          "type": "int",
-          "volatile": false,
-          "undefined": true
+        "imprecise_pointed_value": {
+          "pointer": "s_ptr",
+          "pointer_type": "struct s *",
+          "pointer_value": "{{ &unresolvable_struct }}"
         }
       }
     ],
     "program_point": {
       "file": "test.c",
-      "line": 18,
-      "function": "main_if",
+      "line": 29,
+      "function": "main_struct",
       "statement_kind": "instruction"
     }
   },
@@ -29,11 +28,11 @@
     "status": "NOT OK",
     "list": [
       {
-        "location": { "file": "test.c", "line": 18 },
+        "location": { "file": "test.c", "line": 29 },
         "plugin": "value",
         "kind": "warning",
         "message":
-          "The following sub-expression cannot be evaluated:\\nunresolvable_variable\\n\\nAll sub-expressions with their values:\\nint  unresolvable_variable \\342\\210\\210 [-2147483648..2147483647]\\n\\nStopping\\nstack: main_if"
+          "The following sub-expression cannot be evaluated:\\ns_ptr->x\\n\\nAll sub-expressions with their values:\\nstruct s *  s_ptr \\342\\210\\210 {{ &unresolvable_struct }}\\nint  s_ptr->x \\342\\210\\210 [-2147483648..2147483647]\\n\\nStopping\\nstack: main_struct"
       }
     ]
   },
@@ -46,10 +45,10 @@
     "status": "NOT OK",
     "list": [
       {
-        "name": "unresolvable_variable",
-        "type": "int",
+        "name": "unresolvable_struct",
+        "type": "struct s",
         "file": "test.c",
-        "line": 2
+        "line": 8
       }
     ]
   },
@@ -59,13 +58,13 @@
   "coverage": {
     "type": "informative",
     "function_coverage": "33%",
-    "total_statements_coverage": "8%",
-    "semantic_statements_coverage": "14%"
+    "total_statements_coverage": "17%",
+    "semantic_statements_coverage": "67%"
   },
   "precision": { "type": "informative", "status": "OK", "max_slevel": 1 },
   "target": {
     "type": "informative",
-    "entry_point": "main_if",
+    "entry_point": "main_struct",
     "architecture": "gcc 4.0.3 - X86-32bits mode",
     "endianness": "little endian"
   },

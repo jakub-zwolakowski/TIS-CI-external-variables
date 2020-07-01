@@ -1,38 +1,10 @@
 {
   "computation": { "type": "error", "status": "OK" },
   "undefined_functions": { "type": "error", "status": "OK" },
-  "degeneration": {
-    "type": "error",
-    "status": "NOT OK",
-    "reason": "stop at nth alarm",
-    "program_point": {
-      "file": "test.c",
-      "line": 19,
-      "function": "main_if",
-      "statement_kind": "test"
-    }
-  },
+  "degeneration": { "type": "error", "status": "OK" },
   "non_terminating": { "type": "to verify", "status": "OK" },
   "messages": { "type": "to verify", "status": "OK" },
-  "alarms": {
-    "type": "error",
-    "status": "NOT OK",
-    "list": [
-      {
-        "kind": "uninitialized",
-        "predicate": "\\initialized(&x)",
-        "rank": 1,
-        "status": "unknown",
-        "program_point": {
-          "file": "test.c",
-          "line": 19,
-          "function": "main_if",
-          "statement_kind": "test"
-        },
-        "values": [ { "lvalue": "x", "values": "{{  }}" } ]
-      }
-    ]
-  },
+  "alarms": { "type": "error", "status": "OK" },
   "hypotheses": { "type": "to verify", "status": "OK" },
   "no_body_but_spec": { "type": "to verify", "status": "OK" },
   "body_but_use_spec": { "type": "informative", "status": "OK" },
@@ -41,10 +13,10 @@
     "status": "NOT OK",
     "list": [
       {
-        "name": "unresolvable_variable",
-        "type": "int",
+        "name": "unresolvable_struct",
+        "type": "struct s",
         "file": "test.c",
-        "line": 2
+        "line": 8
       }
     ]
   },
@@ -54,16 +26,20 @@
   "coverage": {
     "type": "informative",
     "function_coverage": "33%",
-    "total_statements_coverage": "17%",
-    "semantic_statements_coverage": "29%"
+    "total_statements_coverage": "25%",
+    "semantic_statements_coverage": "100%"
   },
   "precision": { "type": "informative", "status": "OK", "max_slevel": 1 },
   "target": {
     "type": "informative",
-    "entry_point": "main_if",
+    "entry_point": "main_struct",
     "architecture": "gcc 4.0.3 - X86-32bits mode",
     "endianness": "little endian"
   },
-  "entry_point_return": { "type": "informative", "reachable": false },
+  "entry_point_return": {
+    "type": "informative",
+    "reachable": true,
+    "value": "{{  }}"
+  },
   "exit_function": { "type": "informative", "reachable_calls": 0 }
 }
