@@ -4,35 +4,39 @@
   "degeneration": {
     "type": "error",
     "status": "NOT OK",
-    "reason": "stop at nth alarm",
+    "reason": "interpreter not a singleton",
+    "expression": "s_ptr->x",
+    "imprecision": [
+      {
+        "imprecise_pointed_value": {
+          "pointer": "s_ptr",
+          "pointer_type": "struct s *",
+          "pointer_value": "{{ &unresolvable_struct }}"
+        }
+      }
+    ],
     "program_point": {
       "file": "test.c",
-      "line": 19,
-      "function": "main_if",
-      "statement_kind": "test"
+      "line": 37,
+      "function": "main_if_struct",
+      "statement_kind": "instruction"
     }
   },
   "non_terminating": { "type": "to verify", "status": "OK" },
-  "messages": { "type": "to verify", "status": "OK" },
-  "alarms": {
-    "type": "error",
+  "messages": {
+    "type": "to verify",
     "status": "NOT OK",
     "list": [
       {
-        "kind": "uninitialized",
-        "predicate": "\\initialized(&x)",
-        "rank": 1,
-        "status": "unknown",
-        "program_point": {
-          "file": "test.c",
-          "line": 19,
-          "function": "main_if",
-          "statement_kind": "test"
-        },
-        "values": [ { "lvalue": "x", "values": "{{  }}" } ]
+        "location": { "file": "test.c", "line": 37 },
+        "plugin": "value",
+        "kind": "warning",
+        "message":
+          "The following sub-expression cannot be evaluated:\\ns_ptr->x\\n\\nAll sub-expressions with their values:\\nstruct s *  s_ptr \\342\\210\\210 {{ &unresolvable_struct }}\\nint  s_ptr->x \\342\\210\\210 [-2147483648..2147483647]\\n\\nStopping\\nstack: main_if_struct"
       }
     ]
   },
+  "alarms": { "type": "error", "status": "OK" },
   "hypotheses": { "type": "to verify", "status": "OK" },
   "no_body_but_spec": { "type": "to verify", "status": "OK" },
   "body_but_use_spec": { "type": "informative", "status": "OK" },
@@ -41,10 +45,10 @@
     "status": "NOT OK",
     "list": [
       {
-        "name": "unresolvable_variable",
-        "type": "int",
+        "name": "unresolvable_struct",
+        "type": "struct s",
         "file": "test.c",
-        "line": 2
+        "line": 8
       }
     ]
   },
@@ -55,12 +59,12 @@
     "type": "informative",
     "function_coverage": "25%",
     "total_statements_coverage": "10%",
-    "semantic_statements_coverage": "29%"
+    "semantic_statements_coverage": "25%"
   },
   "precision": { "type": "informative", "status": "OK", "max_slevel": 1 },
   "target": {
     "type": "informative",
-    "entry_point": "main_if",
+    "entry_point": "main_if_struct",
     "architecture": "gcc 4.0.3 - X86-32bits mode",
     "endianness": "little endian"
   },

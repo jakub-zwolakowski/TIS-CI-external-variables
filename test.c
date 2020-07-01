@@ -29,3 +29,14 @@ int main_struct(void) {
   x = s_ptr->x;
   return x;
 }
+
+int main_if_struct(void) {
+  struct s *s_ptr;
+  s_ptr = &unresolvable_struct;
+  int x;
+  x = s_ptr->x;
+  if(x > 42)
+    return x;
+  else
+    return 42;
+}

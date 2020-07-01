@@ -58,8 +58,8 @@
   "useless_files": { "type": "to verify", "status": "OK" },
   "coverage": {
     "type": "informative",
-    "function_coverage": "33%",
-    "total_statements_coverage": "8%",
+    "function_coverage": "25%",
+    "total_statements_coverage": "5%",
     "semantic_statements_coverage": "50%"
   },
   "precision": { "type": "informative", "status": "OK", "max_slevel": 1 },
