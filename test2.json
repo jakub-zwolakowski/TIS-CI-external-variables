@@ -1,10 +1,38 @@
 {
   "computation": { "type": "error", "status": "OK" },
   "undefined_functions": { "type": "error", "status": "OK" },
-  "degeneration": { "type": "error", "status": "OK" },
+  "degeneration": {
+    "type": "error",
+    "status": "NOT OK",
+    "reason": "stop at nth alarm",
+    "program_point": {
+      "file": "test.c",
+      "line": 7,
+      "function": "main",
+      "statement_kind": "test"
+    }
+  },
   "non_terminating": { "type": "to verify", "status": "OK" },
   "messages": { "type": "to verify", "status": "OK" },
-  "alarms": { "type": "error", "status": "OK" },
+  "alarms": {
+    "type": "error",
+    "status": "NOT OK",
+    "list": [
+      {
+        "kind": "uninitialized",
+        "predicate": "\\initialized(&x)",
+        "rank": 1,
+        "status": "unknown",
+        "program_point": {
+          "file": "test.c",
+          "line": 7,
+          "function": "main",
+          "statement_kind": "test"
+        },
+        "values": [ { "lvalue": "x", "values": "{{  }}" } ]
+      }
+    ]
+  },
   "hypotheses": { "type": "to verify", "status": "OK" },
   "no_body_but_spec": { "type": "to verify", "status": "OK" },
   "body_but_use_spec": { "type": "informative", "status": "OK" },
@@ -26,8 +54,8 @@
   "coverage": {
     "type": "informative",
     "function_coverage": "100%",
-    "total_statements_coverage": "100%",
-    "semantic_statements_coverage": "100%"
+    "total_statements_coverage": "29%",
+    "semantic_statements_coverage": "29%"
   },
   "precision": { "type": "informative", "status": "OK", "max_slevel": 1 },
   "target": {
@@ -36,10 +64,6 @@
     "architecture": "gcc 4.0.3 - X86-32bits mode",
     "endianness": "little endian"
   },
-  "entry_point_return": {
-    "type": "informative",
-    "reachable": true,
-    "value": "{{  }}"
-  },
+  "entry_point_return": { "type": "informative", "reachable": false },
   "exit_function": { "type": "informative", "reachable_calls": 0 }
 }
